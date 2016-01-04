@@ -9,7 +9,7 @@ import cgitb
 # global variables
 speriod=(15*60)-1
 dbname='/var/www/templog.db'
-sensorRoomName="Salon"
+#sensorRoomName="Salon"
 #sensors = {
 #    1 : 'Salon',
 #    2 : 'Chambre'
@@ -224,8 +224,21 @@ def get_option():
     else:
         return None
 
+def get_device():
+    form=cgi.FieldStorage()
+    if "device" in form:
+        deviceId = form["device"].value
+        return validate_input (deviceId,sensorRoomName)
+    else:
+        return None
 
-
+def getRoomName():
+    if deviceId = 1:
+        roomName = 'Salon'
+    if deviceId = 2:
+        roomName = 'Chambre'
+    
+    return validate_input (sensorRoomName)
 
 # main function
 # This is where the program starts 
@@ -235,9 +248,16 @@ def main():
 
     # get options that may have been passed to this script
     option=get_option()
+    deviceId=get_device()
+    sensorRoomName=getRoomName()
 
     if option is None:
         option = str(24)
+        
+    if deviceId is None:
+        deviceId = 1
+    
+    print "<h1>ROOM NAME IS %s</h1>", sensorRoomName
 
     # get data from the database
     records=get_data(option)
