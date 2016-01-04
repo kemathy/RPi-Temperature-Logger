@@ -10,7 +10,6 @@ import cgitb
 speriod=(15*60)-1
 dbname='/var/www/templog.db'
 sensorRoomName="Salon"
-sensorRoomName2 = None
 #sensors = {
 #    1 : 'Salon',
 #    2 : 'Chambre'
@@ -250,7 +249,7 @@ def main():
     deviceId=get_device()
     option=get_option()
     
-    sensorRoomName2=getRoomName(deviceId)
+    global sensorRoomName2=getRoomName(deviceId)
 
     if option is None:
         option = str(24)
