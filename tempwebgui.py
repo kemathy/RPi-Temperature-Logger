@@ -9,7 +9,8 @@ import cgitb
 # global variables
 speriod=(15*60)-1
 dbname='/var/www/templog.db'
-sensorRoomName=''
+sensorRoomName="Salon"
+sensorRoomName2 = None
 #sensors = {
 #    1 : 'Salon',
 #    2 : 'Chambre'
@@ -249,7 +250,7 @@ def main():
     # get options that may have been passed to this script
     option=get_option()
     deviceId=get_device()
-    sensorRoomName=getRoomName(deviceId)
+    sensorRoomName2=getRoomName(deviceId)
 
     if option is None:
         option = str(24)
@@ -257,7 +258,7 @@ def main():
     if deviceId is None:
         deviceId = 1
     
-    print "<h1>ROOM NAME IS %s</h1>", sensorRoomName
+    print "<h1>ROOM NAME IS %s</h1>", sensorRoomName2
 
     # get data from the database
     records=get_data(option)
