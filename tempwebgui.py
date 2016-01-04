@@ -249,7 +249,7 @@ def main():
     deviceId=get_device()
     option=get_option()
     
-    global sensorRoomName2=getRoomName(deviceId)
+    sensorRoomName2=getRoomName(deviceId)
 
     if option is None:
         option = str(24)
