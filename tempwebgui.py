@@ -9,11 +9,11 @@ import cgitb
 # global variables
 speriod=(15*60)-1
 dbname='/var/www/templog.db'
-#sensorRoomName="Salon"
-sensors = {
-    1 : 'Salon',
-    2 : 'Chambre'
-}
+sensorRoomName="Salon"
+#sensors = {
+#    1 : 'Salon',
+#    2 : 'Chambre'
+#}
 
 # print the HTTP header
 def printHTTPheader():
@@ -43,9 +43,9 @@ def get_data(interval):
     id=1
     
     if interval == None:
-        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps where id ="+id)
+        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps")
     else:
-        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps WHERE timestamp>datetime('now','-%s hours')" % interval+"where id ="+id)
+        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps WHERE timestamp>datetime('now','-%s hours')" % interval)
 #      curs.execute("SELECT * FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hours') AND timestamp<=datetime('2013-09-19 21:31:02')" % interval)
 
     rows=curs.fetchall()
