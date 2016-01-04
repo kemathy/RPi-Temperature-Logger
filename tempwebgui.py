@@ -248,8 +248,9 @@ def main():
     cgitb.enable()
 
     # get options that may have been passed to this script
-    option=get_option()
     deviceId=get_device()
+    option=get_option()
+    
     sensorRoomName2=getRoomName(deviceId)
 
     if option is None:
