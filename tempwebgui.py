@@ -229,7 +229,7 @@ def get_device():
     form=cgi.FieldStorage()
     if "device" in form:
         deviceId = form["device"].value
-        return validate_input (deviceId,sensorRoomName)
+        return deviceId
     else:
         return None
 
@@ -239,7 +239,7 @@ def getRoomName(deviceId):
     if deviceId == 2:
         roomName = 'Chambre'
     
-    return validate_input (sensorRoomName)
+    return sensorRoomName
 
 # main function
 # This is where the program starts 
