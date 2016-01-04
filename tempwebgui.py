@@ -9,7 +9,7 @@ import cgitb
 # global variables
 speriod=(15*60)-1
 dbname='/var/www/templog.db'
-#sensorRoomName="Salon"
+sensorRoomName=''
 #sensors = {
 #    1 : 'Salon',
 #    2 : 'Chambre'
