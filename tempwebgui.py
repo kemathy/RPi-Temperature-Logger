@@ -236,11 +236,11 @@ def get_device():
 
 def getRoomName(deviceId):
     if deviceId == 1:
-        roomName = 'Salon'
+        roomName = "Salon"
     if deviceId == 2:
-        roomName = 'Chambre'
+        roomName = "Chambre"
     
-    return sensorRoomName
+    return roomName
 
 # main function
 # This is where the program starts 
