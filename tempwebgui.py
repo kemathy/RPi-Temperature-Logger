@@ -258,13 +258,14 @@ def main():
     if deviceId is None:
         deviceId = 1
     
-    print "<h1>ROOM NAME IS %s</h1>", sensorRoomName2
+   
 
     # get data from the database
     records=get_data(option)
 
     # print the HTTP header
     printHTTPheader()
+    print "<h1>ROOM NAME IS %s</h1>", sensorRoomName2
 
     if len(records) != 0:
         # convert the data into a table
