@@ -87,7 +87,8 @@ def print_graph_script(table):
 %s
         ]);
         var options = {
-          title: 'Temperature (\xb0C)'
+          title: 'Temperature (\xb0C)',
+          curveType: 'function'
         };
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
