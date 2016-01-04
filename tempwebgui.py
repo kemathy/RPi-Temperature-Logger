@@ -88,13 +88,7 @@ def print_graph_script(table):
         ]);
         var options = {
           title: 'Temperature (\xb0C)',
-          curveType: 'function',
-          hAxis: {
-              baseline: 0,
-              gridlines: {
-                  count: 6
-              }
-          }
+          curveType: 'function'
         };
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -273,7 +267,7 @@ def main():
 
     # print the HTTP header
     printHTTPheader()
-    print "<h1>ROOM NAME IS "+sensorRoomName2+"</h1>"
+    print "<h1>Device id "+deviceId+" room name : "+sensorRoomName2+"</h1>"
 
     if len(records) != 0:
         # convert the data into a table
