@@ -108,7 +108,7 @@ def show_graph():
 
 # connect to the db and show some stats
 # argument option is the number of hours
-def show_stats(option):
+def show_stats(option,sensorid):
 
     conn=sqlite3.connect(dbname)
     curs=conn.cursor()
@@ -116,17 +116,17 @@ def show_stats(option):
     if option is None:
         option = str(24)
 
-    curs.execute("SELECT datetime(timestamp,'+1 hour'),max(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
+    curs.execute("SELECT datetime(timestamp,'+1 hour'),max(temp) FROM temps WHERE deviceid="+sensorid+" AND timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
 #    curs.execute("SELECT timestamp,max(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
     rowmax=curs.fetchone()
     rowstrmax="{1} \xb0C at {0}".format(str(rowmax[0]),str(rowmax[1]))
 
-    curs.execute("SELECT datetime(timestamp,'+1 hour'),min(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
+    curs.execute("SELECT datetime(timestamp,'+1 hour'),min(temp) FROM temps WHERE deviceid="+sensorid+" AND timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
  #   curs.execute("SELECT timestamp,min(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
     rowmin=curs.fetchone()
     rowstrmin="{1} \xb0C at {0}".format(str(rowmin[0]),str(rowmin[1]))
 
-    curs.execute("SELECT avg(temp) FROM temps WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
+    curs.execute("SELECT avg(temp) FROM temps WHERE deviceid="+sensorid+" AND timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
 #    curs.execute("SELECT avg(temp) FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hour') AND timestamp<=datetime('2013-09-19 21:31:02')" % option)
     rowavg=curs.fetchone()
 
@@ -144,7 +144,7 @@ def show_stats(option):
     print "<table>"
     print "<tr><td><strong>Date/Time</strong></td><td><strong>Temperature</strong></td></tr>"
 
-    rows=curs.execute("SELECT * FROM temps WHERE timestamp>datetime('now','-1 hour') AND timestamp<=datetime('now')")
+    rows=curs.execute("SELECT * FROM temps WHERE deviceid="+sensorid+" AND timestamp>datetime('now','-1 hour') AND timestamp<=datetime('now')")
 #    rows=curs.execute("SELECT * FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-1 hour') AND timestamp<=datetime('2013-09-19 21:31:02')")
     for row in rows:
         rowstr="<tr><td>{0}&emsp;&emsp;</td><td>{1} \xb0C</td></tr>".format(str(row[0]),str(row[1]))
@@ -285,7 +285,7 @@ def main():
     print "<hr>"
     print_time_selector(option)
     show_graph()
-    show_stats(option)
+    show_stats(option,deviceId)
     print "</body>"
     print "</html>"
 
