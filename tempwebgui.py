@@ -158,7 +158,7 @@ def show_stats(option,sensorid):
 
 
 
-def print_time_selector(option):
+def print_time_selector(option,deviceId):
 
     print """<form action="/cgi-bin/tempwebgui.py" method="POST">
         Show the temperature logs for  
@@ -198,12 +198,6 @@ def print_time_selector(option):
             <option value="24" selected="selected">the last 24 hours</option>"""
 
     print """        </select>
-        <input type="submit" value="Display">
-    </form>"""
-    
-def print_room_selector(deviceId):
-
-    print """<form action="/cgi-bin/tempwebgui.py" method="POST">
         Choose a room   
         <select name="device">"""
 
@@ -306,8 +300,7 @@ def main():
     print "<body>"
     print "<h3>Temperature Logger - "+sensorRoomName+"</h3>"
     print "<hr>"
-    print_time_selector(option)
-    print_room_selector(deviceId)
+    print_time_selector(option,deviceId)
     show_graph()
     show_stats(option,deviceId)
     print "</body>"
