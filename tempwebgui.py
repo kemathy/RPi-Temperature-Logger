@@ -37,15 +37,15 @@ def printHTMLHead(title, table):
 # get data from the database
 # if an interval is passed, 
 # return a list of records from the database
-def get_data(interval):
+def get_data(interval,sensorid):
     conn=sqlite3.connect(dbname)
     curs=conn.cursor()
     id=1
     
     if interval == None:
-        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps")
+        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps WHERE deviceid="+sensorid)
     else:
-        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps WHERE timestamp>datetime('now','-%s hours')" % interval)
+        curs.execute("SELECT datetime(timestamp,'+1 hour'),temp FROM temps WHERE deviceid="+sensorid+" AND timestamp>datetime('now','-%s hours')" % interval)
 #      curs.execute("SELECT * FROM temps WHERE timestamp>datetime('2013-09-19 21:30:02','-%s hours') AND timestamp<=datetime('2013-09-19 21:31:02')" % interval)
 
     rows=curs.fetchall()
@@ -260,7 +260,7 @@ def main():
    
 
     # get data from the database
-    records=get_data(option)
+    records=get_data(option,deviceId)
 
     # print the HTTP header
     printHTTPheader()
