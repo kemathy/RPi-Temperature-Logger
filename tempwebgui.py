@@ -11,8 +11,8 @@ speriod=(15*60)-1
 dbname='/var/www/templog.db'
 #sensorRoomName="Salon"
 sensors = {
-    '1': 'Salon',
-    '2': 'Chambre'
+    1: 'Salon',
+    2: 'Chambre'
 }
 
 # print the HTTP header
