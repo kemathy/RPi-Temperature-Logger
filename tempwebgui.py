@@ -233,9 +233,9 @@ def get_device():
         return None
 
 def getRoomName():
-    if deviceId = 1:
+    if deviceId == 1:
         roomName = 'Salon'
-    if deviceId = 2:
+    if deviceId == 2:
         roomName = 'Chambre'
     
     return validate_input (sensorRoomName)
