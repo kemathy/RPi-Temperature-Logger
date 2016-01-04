@@ -200,6 +200,29 @@ def print_time_selector(option):
     print """        </select>
         <input type="submit" value="Display">
     </form>"""
+    
+def print_room_selector(deviceId):
+
+    print """<form action="/cgi-bin/tempwebgui.py" method="POST">
+        Choose a room   
+        <select name="device">"""
+
+
+    if deviceId is not None:
+
+	if deviceId == "1":
+            print "<option value=\"1\" selected=\"selected\">Salon</option>"
+        else:
+            print "<option value=\"1\">Salon</option>"
+
+	if deviceId == "2":
+            print "<option value=\"2\" selected=\"selected\">Chambre</option>"
+        else:
+            print "<option value=\"2\">Chambre</option>"
+
+    print """        </select>
+        <input type="submit" value="Display">
+    </form>"""
 
 
 # check that the option is valid
@@ -284,6 +307,7 @@ def main():
     print "<h3>Temperature Logger - "+sensorRoomName+"</h3>"
     print "<hr>"
     print_time_selector(option)
+    print_room_selector(deviceId)
     show_graph()
     show_stats(option,deviceId)
     print "</body>"
