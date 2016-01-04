@@ -249,7 +249,7 @@ def main():
     deviceId=get_device()
     option=get_option()
     
-    sensorRoomName2=getRoomName(deviceId)
+    sensorRoomName=getRoomName(deviceId)
 
     if option is None:
         option = str(24)
@@ -264,7 +264,7 @@ def main():
 
     # print the HTTP header
     printHTTPheader()
-    print "<h1>Device id "+deviceId+" room name : "+str(sensorRoomName2)+"</h1>"
+    print "<h1>Device id "+deviceId+" room name : "+str(sensorRoomName)+"</h1>"
 
     if len(records) != 0:
         # convert the data into a table
