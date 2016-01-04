@@ -236,9 +236,9 @@ def get_device():
 
 def getRoomName(deviceId):
     if deviceId == 1:
-        return "Salon"
+        return str('Salon')
     elif deviceId == 2:
-        return "Chambre"
+        return str('Chambre')
 
 # main function
 # This is where the program starts 
