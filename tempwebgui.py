@@ -236,9 +236,9 @@ def get_device():
 
 def getRoomName(deviceId):
     if deviceId == 1:
-        roomName = "Salon"
+        global roomName = "Salon"
     elif deviceId == 2:
-        roomName = "Chambre"
+        global roomName = "Chambre"
     
     return roomName
 
