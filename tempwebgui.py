@@ -88,7 +88,13 @@ def print_graph_script(table):
         ]);
         var options = {
           title: 'Temperature (\xb0C)',
-          curveType: 'function'
+          curveType: 'function',
+          hAxis: {
+              baseline: 0,
+              gridlines: {
+                  count: 6
+              }
+          }
         };
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
