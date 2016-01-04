@@ -255,8 +255,8 @@ def main():
     if option is None:
         option = str(24)
         
-    if deviceId is None:
-        deviceId = 1
+    #if deviceId is None:
+    #    deviceId = 1
     
    
 
@@ -265,7 +265,7 @@ def main():
 
     # print the HTTP header
     printHTTPheader()
-    print "<h1>ROOM NAME IS %s</h1>", sensorRoomName2
+    print "<h1>ROOM NAME IS "+sensorRoomName2+"</h1>"
 
     if len(records) != 0:
         # convert the data into a table
