@@ -232,7 +232,7 @@ def get_device():
     else:
         return None
 
-def getRoomName():
+def getRoomName(deviceId):
     if deviceId == 1:
         roomName = 'Salon'
     if deviceId == 2:
@@ -249,7 +249,7 @@ def main():
     # get options that may have been passed to this script
     option=get_option()
     deviceId=get_device()
-    sensorRoomName=getRoomName()
+    sensorRoomName=getRoomName(deviceId)
 
     if option is None:
         option = str(24)
