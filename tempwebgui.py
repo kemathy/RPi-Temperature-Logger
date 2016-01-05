@@ -210,7 +210,7 @@ def validate_input(option_str):
     # check that the option string represents a number
     if option_str.isalnum():
         # check that the option is within a specific range
-        if int(option_str) > 0 and int(option_str) <= 24:
+        if int(option_str) > 0 and int(option_str) <= 72:
             return option_str
         else:
             return None
