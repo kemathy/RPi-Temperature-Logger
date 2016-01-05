@@ -159,7 +159,7 @@ def show_stats(option,sensorid):
 
 def print_time_selector(option,deviceId):
 
-    print """<form action="/cgi-bin/tempwebgui.py" method="POST">
+    print """<form action="/cgi-bin/tempwebgui.py?device="""+deviceId+""" method="POST">
         Show the temperature logs for  
         <select name="timeinterval">"""
 
