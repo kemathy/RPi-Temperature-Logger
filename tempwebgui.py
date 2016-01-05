@@ -88,7 +88,7 @@ def print_graph_script(table):
         var options = {
           title: 'Temperature (\xb0C)',
           'width':800,
-          'height':300;
+          'height':300
         };
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
