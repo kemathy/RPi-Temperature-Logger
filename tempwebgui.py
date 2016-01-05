@@ -86,8 +86,7 @@ def print_graph_script(table):
 %s
         ]);
         var options = {
-          title: 'Temperature (\xb0C)',
-          curveType: 'function'
+          title: 'Temperature (\xb0C)'
         };
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -166,7 +165,7 @@ def print_time_selector(option,deviceId):
 
 
     if option is not None:
-
+        
 	if option == "1":
             print "<option value=\"1\" selected=\"selected\">the last 1 hours</option>"
         else:
@@ -197,22 +196,22 @@ def print_time_selector(option,deviceId):
             <option value="12">the last 12 hours</option>
             <option value="24" selected="selected">the last 24 hours</option>"""
 
-    print """        </select>
-        Choose a room   
-        <select name="device">"""
+    #print """        </select>
+     #   Choose a room   
+      #  <select name="device">"""
 
 
-    if deviceId is not None:
+    #if deviceId is not None:
 
-	if deviceId == "1":
-            print "<option value=\"1\" selected=\"selected\">Salon</option>"
-        else:
-            print "<option value=\"1\">Salon</option>"
+	#if deviceId == "1":
+    #        print "<option value=\"1\" selected=\"selected\">Salon</option>"
+    #    else:
+    #        print "<option value=\"1\">Salon</option>"
 
-	if deviceId == "2":
-            print "<option value=\"2\" selected=\"selected\">Chambre</option>"
-        else:
-            print "<option value=\"2\">Chambre</option>"
+	#if deviceId == "2":
+     #       print "<option value=\"2\" selected=\"selected\">Chambre</option>"
+     #   else:
+      #      print "<option value=\"2\">Chambre</option>"
 
     print """        </select>
         <input type="submit" value="Display">
