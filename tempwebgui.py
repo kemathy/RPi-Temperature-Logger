@@ -159,22 +159,12 @@ def show_stats(option,sensorid):
 
 def print_time_selector(option,deviceId):
 
-    print """<form action="/cgi-bin/tempwebgui.py" method="POST">
+    print """<form action="/cgi-bin/webgui.py" method="POST">
         Show the temperature logs for  
         <select name="timeinterval">"""
 
 
     if option is not None:
-        
-	if option == "1":
-            print "<option value=\"1\" selected=\"selected\">the last 1 hours</option>"
-        else:
-            print "<option value=\"1\">the last 1 hours</option>"
-
-	if option == "2":
-            print "<option value=\"2\" selected=\"selected\">the last 2 hours</option>"
-        else:
-            print "<option value=\"2\">the last 2 hours</option>"
 
         if option == "6":
             print "<option value=\"6\" selected=\"selected\">the last 6 hours</option>"
@@ -195,23 +185,6 @@ def print_time_selector(option,deviceId):
         print """<option value="6">the last 6 hours</option>
             <option value="12">the last 12 hours</option>
             <option value="24" selected="selected">the last 24 hours</option>"""
-
-    #print """        </select>
-     #   Choose a room   
-      #  <select name="device">"""
-
-
-    #if deviceId is not None:
-
-	#if deviceId == "1":
-    #        print "<option value=\"1\" selected=\"selected\">Salon</option>"
-    #    else:
-    #        print "<option value=\"1\">Salon</option>"
-
-	#if deviceId == "2":
-     #       print "<option value=\"2\" selected=\"selected\">Chambre</option>"
-     #   else:
-      #      print "<option value=\"2\">Chambre</option>"
 
     print """        </select>
         <input type="submit" value="Display">
