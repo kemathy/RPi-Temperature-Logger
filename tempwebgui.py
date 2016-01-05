@@ -271,9 +271,7 @@ def main():
         option = str(24)
         
     #if deviceId is None:
-    #    deviceId = 1
-    
-   
+    #    deviceId = 1   
 
     # get data from the database
     records=get_data(option,deviceId)
