@@ -280,7 +280,7 @@ def main():
 
     # print the HTTP header
     printHTTPheader()
-    print "<h1>Device id "+deviceId+" room name : "+str(sensorRoomName)+"</h1>"
+    #print "<h1>Device id "+deviceId+" room name : "+str(sensorRoomName)+"</h1>"
 
     if len(records) != 0:
         # convert the data into a table
